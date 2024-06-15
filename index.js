@@ -1,26 +1,21 @@
-// Javascript is used to set the clock to your computer time.
+const sec=document.getElementById("sec_hand");
+const min=document.getElementById("min_hand");
+const hrs=document.getElementById("hrs_hand");
 
+function getTime(){
+    const dt=new Date();
+    const secs=dt.getSeconds();
+    const mins=dt.getMinutes();
+    const hrss=dt.getHours();
+//  console.log(dt)
+    const timeinv = 6;
+    // since each second deg change by 6 units
 
+    sec.style.transform = "rotate("+(secs*timeinv)+"deg)"
+    min.style.transform = "rotate("+(mins*timeinv+secs/10)+"deg)"
+    hrs.style.transform = "rotate("+(hrss*30+mins/2)+"deg)"
 
-function setTime(left, hand) {
-  $(".clock__" + hand).css("animation-delay", "" + left * -1 + "s");
 }
 
-function getSecondsToday() {
-  let now = new Date();
 
-  let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-  let diff = now - today; 
-  return Math.round(diff / 1000);
-}
-var currentSec = getSecondsToday();
-
-var seconds = (currentSec / 60) % 1;
-var minutes = (currentSec / 3600) % 1;
-var hours = (currentSec / 43200) % 1;
-
-setTime(60 * seconds, "second");
-setTime(3600 * minutes, "minute");
-setTime(43200 * hours, "hour");
-
+setInterval(getTime,100);

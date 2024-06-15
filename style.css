@@ -1,33 +1,55 @@
-body {
-  height: 100%;
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #1b1e23;
 }
-body {
-  background: #1b1e23;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-  color: white;
+.clock{
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border: solid 5px rgb(220, 223, 21);
 }
-
-p {
-  color: #f4eed7;
-  font-size: 0.8em;
-  opacity: 0.75;
+#sec_hand{
+    position: absolute;
+    height: 130px;
+    width: 2px;
+    background-color: rgb(51, 184, 184);
+    left: 149px;
+    bottom: 149px;
+    opacity: 50%;
+    transform-origin: 0% 100%;
 }
-
-.clock {
-  height: 200px;
-  width: 200px;
-  border-radius: 100px;
-  display: flex;
-  justify-content: center;
-  position: relative;
+#min_hand{
+    position: absolute;
+    height: 100px;
+    width: 2px;
+    background-color: rgb(253,120,227);
+    left: 149px;
+    bottom: 149px;
+    transform-origin: 0% 100%;
 }
-  .clock__second,
-  .clock__minute,
-  .clock__hour, .clock__indicator {
+#hrs_hand{
+    position: absolute;
+    height: 80px;
+    width: 4px;
+    background-color: rgb(205,112,255);
+    left: 152px;
+    bottom: 148px;
+    transform-origin: 0% 100%;
+}
+#center{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: rgb(220, 223, 21);
+    left: 145px;
+    bottom: 145px; 
+}
+.clock__indicator {
     position: absolute;
     left: calc(50% - 1px);
     width: 2px;
@@ -36,47 +58,20 @@ p {
     z-index: 2;
     border-radius: 1px;
   }
-  .clock__second {
-    height: 90px;
-    margin-top: 10px;
-    background: #4b9aaa;
-    animation: time 60s infinite steps(60);
-    z-index: 3;
-  }
-  .clock__minute {
-    height: 80px;
-    margin-top: 20px;
-    opacity: 0.75;
-    animation: time 3600s linear infinite;
-  }
-  .clock__hour {
-    height: 60px;
-    margin-top: 40px;
-    animation: time 43200s linear infinite;
-  }
-  .clock__indicator {
-    height: 98px;
+.clock__indicator {
+    height: 150px;
+    /* left:150px; */
+    top: 210px;
     border-top: 2px solid #4b9aaa;
     background: none;
+    opacity: 0;
   }
   .clock__indicator:nth-of-type(5n) {
     opacity: 1;
-    height: 93px;
+    height: 142px;
     border-top: 7px solid #f4eed7;
   }
-  .clock__axis {
-    background: #4b9aaa;
-    width: 5px;
-    height: 5px;
-    border-radius: 3px;
-    position: absolute;
-    z-index: 4;
-    top: 97px;
-    
-  }
-
-
-section:nth-of-type(1) {
+  section:nth-of-type(1) {
     transform: rotateZ(calc(6deg * 1));
   }
   section:nth-of-type(2) {
